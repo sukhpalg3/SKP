@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SKP.Models.NotesDetail>
+
+@{
+    ViewData["Title"] = "View Notes";
+}
+
+<center>
+    <h1>View Notes</h1>
+</center>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-4">
+            <div class="card">
+                <center>
+                    <img src="/w3images/team2.jpg" alt="" style="width:100%">
+                </center>
+                <h1> @Html.DisplayFor(modelItem => item.NameName)</h1>
+                <p class="title"> Author : @Html.DisplayFor(modelItem => item.Author)</p>
+                <p class="title"> @Html.DisplayFor(modelItem => item.NotesDescription)</p>
+                <p><a asp-action="DownloadNote" asp-route-id="@item.NotesID" class="a-button">Download</a></p>
+            </div>
+        </div>
+    }
+</div>
+

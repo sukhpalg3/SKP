@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SKP.Models.BooksDetail>
+
+@{
+    ViewData["Title"] = "View Books";
+}
+
+<center>
+    <h1>View Books</h1>
+</center>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-4">
+            <div class="card">
+                <center>
+                    <img src="/w3images/team2.jpg" alt="" style="width:100%">
+                </center>
+                <h1> @Html.DisplayFor(modelItem => item.BookName)</h1>
+                <p class="title"> Author : @Html.DisplayFor(modelItem => item.Author)</p>
+                <p class="title"> Publisher : @Html.DisplayFor(modelItem => item.Publisher)</p>
+                <p class="title"> @Html.DisplayFor(modelItem => item.BookDescription)</p>
+
+
+                <p><a asp-action="DownloadBook" asp-route-id="@item.BookID" class="a-button">Download</a></p>
+                
+            </div>
+        </div>
+    }
+</div>
+
